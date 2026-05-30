@@ -1,6 +1,7 @@
 import os
 import shutil
 from gencontent import generate_page,generate_pages_recursive
+import sys
 def main():
     def copy_files(static, public):
       
@@ -18,7 +19,11 @@ def main():
                public_path = os.path.join(public, file)
                os.mkdir(public_path)
                copy_files(static_path, public_path)
-    copy_files("/home/temme/workspace/static-generator/static" , "/home/temme/workspace/static-generator/public")
-    generate_pages_recursive("/home/temme/workspace/static-generator/content", "/home/temme/workspace/static-generator/template.html", "/home/temme/workspace/static-generator/public")
+    copy_files("/home/temme/workspace/static-generator/static" , "/home/temme/workspace/static-generator/docs")
+    if len(sys.argv) > 1:
+        basepath = sys.argv[1]
+    else:
+        basepath = "/"
+    generate_pages_recursive("/home/temme/workspace/static-generator/content", "/home/temme/workspace/static-generator/template.html", "/home/temme/workspace/static-generator/docs",basepath)
 
 main()
