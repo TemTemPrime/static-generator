@@ -19,7 +19,7 @@ def main():
                public_path = os.path.join(public, file)
                os.mkdir(public_path)
                copy_files(static_path, public_path)
-    copy_files("/home/temme/workspace/static-generator/static" , "/home/temme/workspace/static-generator/docs")
+    copy_files("/home/temme/workspace/static-generator/content" , "/home/temme/workspace/static-generator/docs")
     if len(sys.argv) > 1:
         basepath = sys.argv[1]
     else:
