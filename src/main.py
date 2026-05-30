@@ -5,8 +5,6 @@ import sys
 def main():
     def copy_files(static, public):
       
-        if os.listdir(public) == os.listdir(static):
-            return "completed"
         shutil.rmtree(public)
         if os.path.exists(public) == False:
             os.mkdir(public)
@@ -19,7 +17,7 @@ def main():
                public_path = os.path.join(public, file)
                os.mkdir(public_path)
                copy_files(static_path, public_path)
-    copy_files("/home/temme/workspace/static-generator/content" , "/home/temme/workspace/static-generator/docs")
+    copy_files("/home/temme/workspace/static-generator/static" , "/home/temme/workspace/static-generator/docs")
     if len(sys.argv) > 1:
         basepath = sys.argv[1]
     else:
